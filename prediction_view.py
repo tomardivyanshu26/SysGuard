@@ -10,16 +10,15 @@ class PredictionView(ctk.CTkFrame):
     """
     def __init__(self, parent):
         super().__init__(parent, corner_radius=0)
-
         self.grid_columnconfigure(0, weight=1)
-        self.grid_rowconfigure(1, weight=1) # Graph frame
-        self.grid_rowconfigure(2, weight=0) # Info frame
+        self.grid_rowconfigure(1, weight=1) 
+        self.grid_rowconfigure(2, weight=0)
 
-        # --- Title ---
+      
         title_label = ctk.CTkLabel(self, text="Performance & Prediction", font=ctk.CTkFont(size=24, weight="bold"))
         title_label.grid(row=0, column=0, padx=20, pady=20, sticky="w")
         
-        # --- Graph Frame ---
+        
         self.graph_frame = ctk.CTkFrame(self)
         self.graph_frame.grid(row=1, column=0, padx=20, pady=10, sticky="nsew")
         self.graph_frame.grid_columnconfigure(0, weight=1)
