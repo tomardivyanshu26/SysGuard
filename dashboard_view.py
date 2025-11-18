@@ -1,10 +1,22 @@
-import customtkinter as ctk
-from tkinter import ttk
-import psutil
-from collections import defaultdict
-import threading
-import time
-import queue
+print("Attempting to read dashboard_view.py...")
+try:
+    import customtkinter as ctk
+    from tkinter import ttk
+    import psutil
+    from collections import defaultdict
+    import threading
+    import time
+    import queue
+    print(">>> All imports in dashboard_view.py are SUCCESSFUL.")
+except ImportError as e:
+    print("\n" + "="*50)
+    print("!!! FATAL ERROR: An import failed inside dashboard_view.py.")
+    print(f"!!! The error was: {e}")
+    print("!!! CRITICAL: Please check your project directory ('newos') for any files")
+    print("!!! named 'queue.py', 'time.py', 'threading.py', 'collections.py', or 'psutil.py'.")
+    print("!!! If you find one, rename it (e.g., 'my_queue.py') and run again.")
+    print("="*50 + "\n")
+    raise e # Re-raise the error so main_application.py knows it failed
 
 class DashboardView(ctk.CTkFrame):
     """
@@ -168,4 +180,3 @@ class DashboardView(ctk.CTkFrame):
     def on_destroy(self):
         """Signal the update thread to stop when the widget is destroyed."""
         self.update_running = False
-
